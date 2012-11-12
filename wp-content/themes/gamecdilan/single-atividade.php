@@ -49,11 +49,6 @@
                                 <?php endif; ?>
                             </div>
                             <aside class="span4">
-                                <div id="comentario" class="widget">
-                                    <h3>Comentários ou dúvidas</h3>
-                                    <textarea rows="10" class="span4" disabled></textarea>
-                                    <a href="#" class="btn disabled">Enviar comentário</a>
-                                </div>
                                 <div id="lista-comentarios" class="widget">
                                     <?php comments_template( '', true ); ?>
                                 </div>
