@@ -1,0 +1,2 @@
+[05-Nov-2012 14:30:14] PHP Fatal error:  Out of memory (allocated 36700160) (tried to allocate 84 bytes) in /home/cdilanc/public_html/game/wp-includes/pomo/mo.php on line 219
+[05-Nov-2012 16:04:14] PHP Fatal error:  Out of memory (allocated 2883584) (tried to allocate 122880 bytes) in /home/cdilanc/public_html/game/wp-includes/default-filters.php on line 108

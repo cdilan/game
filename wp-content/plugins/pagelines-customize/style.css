@@ -1,0 +1,1743 @@
+/* reseta o padding */
+
+#content .content-pad { 
+
+	padding: 0px;
+
+}
+
+
+
+/* coloca margin pra separar o menu fixo do topo do resto */
+
+#page-main {
+
+   margin-top: 10px;
+
+}
+
+
+
+/* leayout arrendodado com sombra para conteudo de Pages e Posts */
+
+.one-sidebar-left #pagelines_content #column-wrap { 
+
+width: 78.5%;
+
+border: #DDD solid .1em;
+
+border-radius: .9em;
+
+margin: 0px;
+
+box-shadow: 5px 5px 5px #EEE;
+
+background: white;
+
+}
+
+
+
+hr, .fpost, .clip_box, .widget-title, .metabar a, #morefoot .widget-title, #site #dsq-content h3, .navigation_wrap { 
+
+border-bottom: .1em solid transparent;
+
+}
+
+
+
+/* equaliza o padding onde é publicado o post ou page */
+
+.one-sidebar-left #column-main .mcolumn-pad, .two-sidebar-left #column-main .mcolumn-pad {
+
+padding: 1em;
+
+}
+
+
+
+/* diminui padding inferior das entradas influencia Pages e Posts */
+
+.hentry-pad { 
+
+padding: 0 0 1em;
+
+}
+
+
+
+/* tira uma margem bottom que não sei pra que serve */
+
+.hentry, .clip_box { 
+
+margin: 0;
+
+}
+
+
+
+/* define a largura na linha separadores de itens do layout como widgests, comentarios de post e estt. a cor está em transparente aparentemente por ser algum truque a cor é modificada abaixo */
+
+hr, .fpost, .clip_box, .widget-title, .metabar a, #morefoot .widget-title, #site #dsq-content h3, .navigation_wrap { 
+
+border-bottom: .25em solid rgba(238, 238, 238, 0);
+
+}	
+
+
+
+/* altera a cor da linha limitadora acima */
+
+hr, .fpost, .clip_box, .widget-title, .metabar a, #morefoot .widget-title, #site #dsq-content h3, .navigation_wrap, .setup_area, .fpost .post-thumb img, .clip .clip-thumb img, .author-thumb img, ul.sf-menu ul li {
+
+border-color: #F2F2F2; /*deixei em defalut */
+
+}
+
+
+
+/* controla a margin superior e inferior do conteudo base */
+
+section.copy {
+
+margin: 0.6em 0;
+
+}
+
+
+
+/* arredonda navegação de posts */
+
+.mcolumn-pad > :first-child, .copy-pad > :first-child, .scolumn-pad > :first-child, .sidebar_widgets > :first-child {
+
+margin-top: 0;
+
+border-radius: 3em;
+
+border: none;
+
+}
+
+
+
+
+
+/* configura footer */
+
+#footer #simple_nav .content-pad, #footer #simple_nav .content-pad .simplenav {
+
+  padding: 0px;
+
+  text-align: right;
+
+}
+
+
+
+
+
+
+
+
+
+/* layout do conteúdo das pages e posts */
+
+
+
+/* cabeçalho de posts e pages */
+
+#postloop .post-title-section {
+
+padding: .5em 1.5em 0.5em 1em;
+
+border: .2em solid white;
+
+border-radius: 1em;
+
+background: #9dcfe0;
+
+-webkit-box-shadow: 0em 0em .3em .1em #ADADAD;
+
+box-shadow: 0em 0em .3em .1em #ADADAD;
+
+
+
+}
+
+
+
+.post-meta {
+
+margin-bottom: 0em;
+
+}
+
+
+
+/* coloca lado a lado titulo e dados de postagem */
+
+.post-title-section {
+
+    display: -webkit-box;
+
+    -webkit-box-orient: horizontal;
+
+    -webkit-box-pack: justify;
+
+    -webkit-box-align: center;
+
+    	/* se colocar reduz o tamanho da barra
+
+    display: -moz-box;
+
+    -moz-box-orient: horizontal;
+
+    -moz-box-pack: justify;
+
+    box-pack: justify; */
+
+}
+
+
+
+/* reserva 50% pra titulo */
+
+.post-title {
+
+width: 50%;
+
+}
+
+
+
+/* coloca dados do post na direita */
+
+.metabar {
+
+width: 50%;	
+
+display: -webkit-box;
+
+-webkit-box-pack: end;
+
+}
+
+
+
+/* diagramação do texto de conteudo para pages e posts */
+
+.entry_content {
+
+padding: 0 1.5em;
+
+margin-top: 1em;
+
+text-align: justify;
+
+background: white;
+
+
+
+}
+
+
+
+.post-title-section em, .post-title-section .metabar-pad a{
+
+/*	color: #fff;
+
+	text-decoration: none;
+
+	border: 0px;
+
+	text-transform:uppercase;
+
+	background: none repeat scroll 0 0 white;
+
+    border: 0.1em solid gray;
+
+    border-radius: 1.3em 1.3em 1.3em 1.3em;*/
+
+
+
+    float: right;
+
+    font-weight: bold;
+
+    text-decoration: none;
+
+    text-transform: uppercase;
+
+}
+
+
+
+
+
+.post-title-section a, .post-title-section a:hover {
+
+	margin: 0em 0.16em;
+
+	color: #000;
+
+	text-decoration: none;
+
+}
+
+
+
+.post-title-section a:hover {
+
+	font-weight: bold;
+
+}
+
+
+
+/* ======================
+
+   ===                ===
+
+   ===    sidebar1    ===
+
+   ===                ===
+
+   ====================== */
+
+
+
+/* borda arredondada com sommbras */
+
+.one-sidebar-left #pagelines_content #sidebar1 {
+
+	width: 98%;
+
+	border: #DDD solid .1em;
+
+	border-radius: .9em;
+
+	box-shadow: 5px 5px 5px #EEE;
+
+	background: white;
+
+}
+
+
+
+/* tira titulo do widget do cubepoint */
+
+.widget_cp_pointswidget .widget-title{
+
+	display: none;
+
+}
+
+
+
+/* lanoba shortcode */
+
+.profile_user {
+
+display: -webkit-box;
+
+-webkit-box-orient: horizontal;
+
+-webkit-box-align: center;
+
+display: -moz-box;
+
+-moz-box-orient: horizontal;
+
+-moz-box-align: center;
+
+
+
+
+
+}
+
+
+
+.profile_avatar{
+
+margin: 0 1em .25em 0;
+
+}
+
+
+
+.profile_display_name {
+
+	font-weight: bold;
+
+}
+
+
+
+.profile_logout, .botao-base, .botao-base a:hover {
+
+-webkit-appearance: button;
+
+/*Botao Logout*/
+
+-moz-appearance: button-bevel;
+
+padding: 3px 9px;
+
+width: 47px;
+
+text-decoration: none;
+
+/*display: inline;*/
+
+}
+
+
+
+/* ======================
+
+   ===                ===
+
+   ===    sub menu    ===
+
+   ===                ===
+
+   ====================== */
+
+
+
+/* base vasada de cabo a rabo */
+
+#secondnav.container {
+
+background: #FC0;
+
+margin-bottom: .8em;
+
+}
+
+
+
+/* acerta padding do site para não ficar espaço entre o menu fixo e o segundo menu */
+
+body.navbar_fixed .page-canvas {
+
+padding-top: 40px;
+
+}
+
+
+
+/* define font e distancia entre itens do menu  */
+
+#nav .content-pad, #secondnav .content-pad {
+
+padding-top: 0px;
+
+padding-bottom: 0px;
+
+font-size: 120%;
+
+font-weight: bolder;
+
+}
+
+
+
+/* define altura do menu */
+
+#secondnav ul li {
+
+	line-height: 2.3em;
+
+}
+
+
+
+
+
+/* define cor do texto do menu */
+
+#secondnav li a, #secondnav li a:hover {
+
+display: block;
+
+padding: 3px 8px;
+
+border: none;
+
+color: #000;
+
+}
+
+
+
+/* faz o bg mudar de cor em hover  */
+
+#secondnav ul li:hover {
+
+float: left;
+
+background: #FFA100;
+
+}
+
+
+
+/* =========================
+
+   ===                   ===
+
+   ===    multi posts    ===
+
+   ===                   ===
+
+   ========================= */
+
+
+
+/* controla largura do clip-box */
+
+#pagelines_content .clip {
+
+width: 49%;
+
+}
+
+
+
+.post-nocontent.post-meta {
+
+margin-bottom: 0;
+
+border-radius: 0.6em;
+
+background: white;
+
+-webkit-box-shadow: 0em 0em 1em .1em rgba(0, 0, 0, 0.25);
+
+box-shadow: 0em 0em 2em .2em rgba(0, 0, 0, 0.25); /* Box com sombra no mozilla firefox */
+
+padding: .5em 1em;
+
+}
+
+
+
+.blocks .metabar-pad {
+
+	display: none;
+
+}
+
+
+
+.blocks .post-title {
+
+	width: 100%;
+
+//	min-height: 30px;
+
+}
+
+
+
+.continue_reading_link {
+
+-webkit-appearance: button;
+
+-moz-appearance: button-bevel;
+
+/*
+
+-webkit-appearance:-moz-window-button-box: ;
+
+*/
+
+padding: 3px 9px;
+
+width: 78px;
+
+float: right;
+
+}
+
+
+
+/* ==========================
+
+   ===                    ===
+
+   ===    pagina login    ===
+
+   ===                    ===
+
+   ========================== */
+
+
+
+.lado-esquerdo {
+
+	display: inline-block;
+
+	float: left;
+
+	max-width: 370px;
+
+	min-width: 180px;
+
+}
+
+
+
+#post-274 #lanoba {
+
+	margin: 24px 0px 0px 27%;
+
+  height: 40px;
+
+}
+
+
+
+.jogue {
+
+  padding: 0 27px;
+
+}
+
+
+
+#post-274 .entry_wrap {
+
+	border: 0.1em solid #DDDDDD;
+
+    border-radius: 1em 1em 1em 1em;
+
+    margin: 1em 0 0 0;
+
+    padding: 7px 0 19px;
+
+    background: white;
+
+    box-shadow: 5px 5px 5px #EEE;
+
+}
+
+
+
+#lanoba .logado {
+
+	margin: 0 1.3em 0 0;
+
+}
+
+
+
+#post-274 .youtube {
+
+	float: right;
+
+}
+
+
+
+.texto {
+
+	float: none;
+
+	padding: 0 12%;
+
+	text-align: center;
+
+	color: #5A7FC4;
+
+	margin: 0px;
+
+}
+
+ 
+
+.lado-esquerdo p, #post-274 .post-header {
+
+	display: none;
+
+}
+
+
+
+/* ==========================
+
+   ===                    ===
+
+   ===    google maps     ===
+
+   ===                    ===
+
+   ========================== */
+
+
+
+.google-map-placeholder {
+
+	float: right;
+
+	margin-bottom: 1em;
+
+}
+
+
+
+/* ===============================
+
+   ===                         ===
+
+   ===    pg redes sociais     ===
+
+   ===                         ===
+
+   =============================== */
+
+
+
+td.logo {
+
+	height: 64px;
+
+  width: 64px;
+
+}
+
+
+
+/* ===================================== */
+
+/* = Inicio Customização do MoreFoot   = */
+
+/* ===================================== */
+
+
+
+#morefoot_area {
+
+  background: #F2F2F2;
+
+  margin-top: 1em;
+
+}
+
+
+
+
+
+
+
+#list_sb_fullwidth li {
+
+  display: inline;
+
+    float: left;
+
+    padding: 20px;
+
+}
+
+
+
+.ngg-widget img {
+
+    border: none;
+
+    margin: 2px 12px 12px 2px;
+
+    padding: 1px;
+
+}
+
+.entry-title {
+
+font-size: 15px;
+
+font-weight: bold;
+
+color: #88898A;
+
+border-color: #A8A9AA;
+
+}
+
+
+
+/* ===================================== */
+
+/* =    Video contondando texto        = */
+
+/* ===================================== */
+
+
+
+.polaroid-youtube{
+
+    float:right;
+
+    margin:0 0 0 26px;
+
+    text-align: center;
+
+    padding: 13px;
+
+    }
+
+.polaroid-youtube p {
+
+    display: none;
+
+    }
+
+.polaroid-youtube h6 {
+
+    margin-bottom: 0;
+
+    margin-top: 5px;
+
+  }
+
+
+
+/* =====================================
+
+   =      Esconde SideBar principal e  = 
+
+   =      indice no Template 3         =
+
+   ===================================== */
+
+
+
+  .gamma #sb_primary {
+
+    display: none
+
+  }    
+
+  .gama .widget-pad {
+
+    display: none;
+
+  }
+
+
+
+/* =====================================
+
+   = Esconde SideBar Como Jogar        = 
+
+   = Template perfil,default,1,2,4,5   =
+
+   = e nos posts e categorias          =
+
+   ===================================== */
+
+  }
+
+  .default #sb_tertiary {
+
+    display: none;
+
+  }
+
+  .alpha #sb_tertiary {
+
+    display: none;
+
+  }
+
+  .beta #sb_tertiary {
+
+    display: none;
+
+  }
+
+  .delta #sb_tertiary {
+
+    display: none;
+
+  }
+
+  .epsilon #sb_tertiary {
+
+    display: none;
+
+  }
+
+  .perfil #sb_tertiary {
+
+    display: none;
+
+  }
+
+
+
+  .single-format-standard #sb_tertiary {
+
+    display: none;
+
+  }
+
+
+
+  .category #sb_tertiary {
+
+    display: none;
+
+  }
+
+
+
+/* =================================
+
+   =      shortcod botao           =
+
+   ================================= */
+
+
+
+.bb {
+
+  display: inline-block;
+
+  .ie7-inline-block();
+
+  padding: 4px 10px 4px;
+
+  margin: 3px; // For input.btn
+
+  color: black;
+
+  text-align: center;
+
+  text-shadow: 0 1px 1px rgba(255,255,255,.75);
+
+  vertical-align: middle;
+
+  background-color: #FAA732;
+
+  border: 1px solid #FAA42C;
+
+  border-radius: .3em;
+
+  cursor: pointer;
+
+
+
+  // Give IE7 some love
+
+  .ie7-restore-left-whitespace();
+
+}
+
+
+
+// Hover state
+
+#postloop .bb a:hover {
+
+  text-decoration:none;
+
+}
+
+#postloop .bb a:hover, #postloop .bb a {
+
+  color: black;
+
+  text-decoration: none;
+
+}
+
+
+
+
+
+/* =================================
+
+   =      tabela de trofeus        =
+
+   =      custom display           =
+
+   =       dashboard jogador       =
+
+   ================================= */
+
+
+
+#post-102 td {
+
+  bordertop: .2em solid #fff;
+
+}
+
+
+
+#post-102 .dash-habilidade {
+
+  width: 140px;
+
+}
+
+
+
+#post-102 .dash-pontos {
+
+  width: 66px;
+
+}
+
+
+
+#post-102 .fantasma {
+
+  opacity:0.4;
+
+}
+
+
+
+#post-102 .dash-th {
+
+  background: #FFC266;
+
+  color: #fff;
+
+}
+
+
+
+#post-102 .dash-odd {
+
+  background: #F7F7F7;
+
+}
+
+
+
+#post-102 .dash-even {
+
+  background: #EAEAEA;
+
+}
+
+
+
+#post-102 .dash-th th {
+
+  border-left: .2em solid #fff;
+
+}
+
+
+
+/* ====================================
+
+   =          divs vazias             =
+
+   =      usadas para condicionais    =
+
+   =     feitas com custom display    =
+
+   =         do Formidable            =
+
+   ==================================== */
+
+
+
+.div-vazia {
+
+  display: none;
+
+}
+
+
+
+/* ====================================
+
+   =          lesta medalhas          =
+
+   =             dashboard            =
+
+   ==================================== */
+
+
+
+.medalha li, .minimedalhas li {
+
+  list-style: none;
+
+}
+
+
+
+.medalha-em-linha {
+
+    float: left;
+
+}
+
+
+
+.thumb-64 {
+
+  width: 64px;
+
+}
+
+
+
+.thumb-24 {
+
+  width: 32px;
+
+}
+
+
+
+
+
+/* ========================================
+
+   =          lista jogadores             =
+
+   =               público                =
+
+   ======================================== */
+
+
+
+#lista-jogadores {
+
+  margin: 0em;
+
+  padding: 0em;
+
+  float: none;
+
+  display: block;
+
+}
+
+
+
+#lista-jogadores li {
+
+  border-radius: 1em 1em 1em 1em;
+
+  display: inline-block;
+
+  list-style: none outside none;
+
+  margin: 0.3em;
+
+  padding: 0.5em;
+
+  width: 100%;
+
+}
+
+
+
+.jogador-card p:before {
+
+  display: none;
+
+}*/
+
+
+
+#lista-jogadores a, #lista-jogadores a:hover, #lista-jogadores a:visited   {
+
+  text-decoration: none;
+
+}
+
+
+
+#lista-jogadores ul {
+
+  margin: 0px;
+
+}
+
+
+
+#lista-jogadores .avatar {
+
+  float: left;
+
+  margin-right: 0.3em;
+
+  border-radius: 0.5em;
+
+}
+
+
+
+.jogador-card {
+
+  background: #F1F1F1;
+
+  border: solid 0.2em white;
+
+  box-shadow: 5px 5px 5px #EEE;
+
+}
+
+
+
+
+
+/* ========================================
+
+   =          perfil do jogador           =
+
+   =               público                =
+
+   ======================================== */
+
+
+
+#perfil-publico #basico {
+
+  margin: 0px;
+
+}
+
+
+
+#perfil-publico {
+
+  margin: 0em -1.5em;
+
+}
+
+
+
+#perfil-publico p{
+
+  display: none;
+
+}
+
+
+
+#perfil-publico td{
+
+  padding: 0px;
+
+}
+
+
+
+#basico .avatar {
+
+  float: left;
+
+  margin: 0.3em;
+
+  padding: 0em;
+
+}
+
+
+
+.grupo {
+
+  margin-right: 0.3em;
+
+  width: 353px;
+
+}
+
+.grupo .userid, .grupo .nome-completo, .grupo .titulo-lh, .grupo .lh, .grupo .telefone {
+
+  float: none;
+
+  margin: 0em;
+
+  padding: 0em;
+
+}
+
+
+
+.grupo .userid, .grupo .titulo-lh{
+
+  font-weight: bolder;
+
+}
+
+
+
+.grupo .userid {
+
+  font-size: 150%;
+
+}
+
+
+
+.grupo .nome-completo {
+
+  font-style: italic;
+
+}
+
+
+
+#perfil-publico th {
+
+  text-align: right;
+
+  padding: 2px;
+
+}
+
+
+
+.titulo-grande {
+
+  background: #9DCFE0;
+
+  font-size: 150%;
+
+}
+
+
+
+/* ===========================================
+
+   =          features topo da tela          =
+
+   =               público                   =
+
+   =========================================== */
+
+
+
+.no_clone .content-pad {
+
+    bottom: 7px;
+
+    height: 200px;
+
+    margin: 0;
+
+    padding: 0;
+
+    position: relative;
+
+}
+
+
+
+
+
+.no_clone #feature-footer {
+
+  position: relative;
+
+  bottom: 45px;
+
+}
+
+
+
+.no_clone #feature_slider .fcontent {
+
+  width: 40%;
+
+}
+
+
+
+
+
+.no_clone #feature_slider .dcol-pad {
+
+  height: 172px;
+
+  padding: 1em;
+
+
+
+}
+
+
+
+.no_clone #feature_slider .fcontent .ftitle a {
+
+  line-height:50%;
+
+}
+
+
+
+.no_clone #feature_slider .fcontent .fheading {
+
+  margin: 0px;
+
+  padding: 0px;
+
+}*/
+
+
+
+/* ========================================
+
+   =          features randomico          =
+
+   =                blogs                 =
+
+   ======================================== */
+
+
+
+.clone_2 .content-pad {
+
+    bottom: 7px;
+
+    height: 200px;
+
+    margin: 0;
+
+    padding: 0;
+
+    position: relative;
+
+}
+
+
+
+.clone_2 #pagelines_content {
+
+  position: relative;
+
+  top: -30px;
+
+}
+
+.clone_2 #feature-footer {
+
+  position: relative;
+
+  bottom: 200px;
+
+}
+
+
+
+.clone_2 .dcol-pad {
+
+  height: 172px;
+
+  padding: 1em;
+
+}
+
+
+
+.clone_2 #feature_slider .fcontent {
+
+  width: 100%;
+
+}
+
+
+
+.clone_2 #feature_slider .fcontent .fheading {
+
+  padding: 1.8em;
+
+}
+
+
+
+.clone_2 #feature_slider .fcontent .fexcerpt {
+
+  padding: 0em 1.8em 1.8em 1.8em;
+
+}
+
+
+
+/* ========================================
+
+   =          FORMRESULTIS                =
+
+   =          RANKING JOGADORES           =
+
+   ======================================== */
+
+
+
+.form_results.with_frm_style tr td {
+
+    text-align: left;
+
+    color: #444;
+
+    padding: 7px 7px;
+
+    border-top: 1px solid #DDD;
+
+    font-size: 11px;
+
+}
+
+
+
+
+
+.avatar-list .avatar.avatar-96.photo {
+
+width: 48px;
+
+}
+
+
+
+/* ========================================
+
+   =    IMAGENS COM ALINHAMENTO NONE      =
+
+   =          FICAM LADO A LADO           =
+
+   ======================================== */
+
+   .alignnone {
+
+  display: inline;
+
+  margin: .5em;
+
+  -webkit-box-shadow: 0em 0em 0.8em .2em #ADADAD
+
+  box-shadow: 0em 0em 0.8em .2em #ADADAD
+
+}
+
+
+
+/* ========================================
+
+   =    ESCONDE HTML DOS POSTS            =
+
+   =                                      =
+
+   ======================================== */
+
+.form-allowed-tags {
+
+display: none;
+
+}
+
+
+
+/* ========================================
+
+   =    DESTAQUE PARA A ÁREA              =
+
+   =    NAVEGUE PELO GAME AQUI            =
+
+   ======================================== */
+
+#categories-3{
+
+    padding: 0.5em 0.5em 0.5em 0.5em;
+
+    border: .2em solid white;
+
+    border-radius: 1em;
+
+    background: #9DCFE0;
+
+    -webkit-box-shadow: 0em 0em .3em .1em #ADADAD;
+
+    box-shadow: 0em 0em .3em .1em #ADADAD;
+
+}
+
+
+
+/* ========================================
+
+   =       INSERE UM MARCA TEXTO          =
+
+   =        NOS LINKS DOS POSTS           =
+
+   ======================================== */
+
+
+
+.post-excerpt a, .entry_content a {
+
+    font-weight: bolder;
+
+    color: #faa732;
+
+    padding: 3px 6px 6px 3px;
+
+}
+/*
+.post-excerpt a:hover .entry_content a:hover {  
+
+    color: #060B88;
+
+    background-color: #FAA732;
+
+    padding: .3em;
+
+}*/
+.post .entry_content a:hover{
+    color: #060B88;
+    background-color: #FAA732;
+    padding: .3em;
+}
+
+
+
+/* ========================================
+
+   =       DESABILITA LINK                =
+
+   = ADD COMENTÁRIO NO HEADER DO POST     =
+
+   ======================================== */
+
+.post-comments.sc{
+
+    display: none;
+
+}
+
+
+
+/* ========================================
+
+   =       LAYOUT DA PAGINA               =
+
+   =          ERROR 404                   =
+
+   ======================================== */
+#noposts {
+height: 400px;
+}
+h2.notfound-splash {
+font-size: 5em;
+}
+/*
+
+
+/* ========================================
+
+   =       BORDAS NAS TABELAS             =
+
+   =          COLADAS NAS TAREFAS         =
+
+   ======================================== */
+#postloop .category-atividades-entregues td {
+border: solid 1px;
+padding: .4em;
+}
+
+
+/* ========================================
+
+   =       CADASTRANDO SUA LAN HOUSE      =
+
+   =          PRIMEIRA  ATIVIDADE         =
+
+   ======================================== */
+.box-dica1 {
+background-color: blue;
+width: 300px;
+float: left;
+height: 200px;
+padding: 5px;
+}
+
+.box-dica2 {
+background-color: red;
+width: 300px;
+float: left;
+height: 200px;
+margin-top: 10px;
+padding: 5px;
+}
+
+.form-basico {
+float: right;
+background-color: gray;
+margin-top: 10px;
+}
+
+.cadastrando-lanhouse {
+width: 400px;
+float: left;
+height: 300px;
+margin-right: 16px;
+padding: 10px;
+}
+
+
+
+/* ========================================
+
+   =       PAGINA INICIAL DO GAME CDILAN  =
+
+   =              ONBOARDING              =
+
+   ======================================== */
+.tabela-reinvente td {
+width: 220px;
+float: left;
+}
+
+.tabela-colabore td {
+width: 220px;
+float: left;
+}
+
+.tabela-participe td {
+width: 220px;
+float: left;
+}
+
+.tabela-inicial {
+float: left;
+margin: 10px;
+}
+
+.texto-meio{
+height: 100px;
+background-color: #eae3e3;
+}
+
+.tabela-inicial-header {
+background-color: gray;
+color: white;
+font-weight: bold;
+}
+
+.tabela-inicial-footer {
+background-color: #C5C5C5;
+color: black;
+font-weight: bold;
+}
+
+.texto-game {
+height: 240px;
+}
+
+.tabela-inicial-footer a {
+color: black;
+}
