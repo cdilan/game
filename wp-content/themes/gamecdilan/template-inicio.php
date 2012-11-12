@@ -11,7 +11,6 @@ get_header(); ?>
                         <div class="container">
                             <div class="row">
                                 <div class="span6">
-                                    <h1><?php the_title(); ?></h1>
                                     <div class="lead">
                                         <?php the_content(); ?>
                                     </div>
