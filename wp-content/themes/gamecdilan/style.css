@@ -319,3 +319,10 @@ ol.commentlist li{
 	line-height: 100%;
 	font-size: 15px;
 }
+
+/* layout da pagina Lista de Atividades */
+
+.resumo-atividade {
+	height: 119px;
+	overflow: hidden;
+}

@@ -22,7 +22,7 @@
                                         <li class="span6">
                                             <div class="thumbnail">
                                                 <h2><?php the_title(); ?></h2>
-                                                <p><?php the_excerpt(); ?></p>
+                                                <div class="resumo-atividade"><?php the_excerpt(); ?></div>
                                                 <a href="<?php the_permalink(); ?>" class="btn btn-primary">Fazer atividade</a>
                                             </div>
                                         </li>
