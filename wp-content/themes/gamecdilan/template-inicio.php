@@ -28,7 +28,8 @@ get_header(); ?>
                                             
                                             <article class="home-news">
                                                 <p>
-                                                    <strong>Novidades no GAME!</strong>
+                                                    <strong><?php the_title(); ?></strong>
+                                                </p><p>
                                                     <?php echo get_the_excerpt(); ?>
                                                     <a href="<?php the_permalink(); ?>">saiba mais &raquo;</a>
                                                 </p>
