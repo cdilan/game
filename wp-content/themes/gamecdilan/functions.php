@@ -31,87 +31,150 @@ function js_head_load(){
 	wp_register_script('modernizr', get_bloginfo('template_directory').'/js/modernizr.min.js');
 	wp_enqueue_script('modernizr');
 
+	if(is_page_template( 'template-episodios.php' )){
+
+		//Load BoxSlider
+		wp_register_script('boxslider', get_bloginfo('template_directory').'/js/boxslider.min.js');
+		wp_enqueue_script('boxslider');	
+
+		//Load BoxSlider
+		wp_register_script('episodios', get_bloginfo('template_directory').'/js/episodios.js');
+		wp_enqueue_script('episodios');
+
+	}
+
 }
 
 /***************************************************
-# Configurações
+# Configurações gerais do tema
 ***************************************************/
 
-add_theme_support('post-thumbnails'); //habilita imagem destacada
+//habilita imagem destacada
+add_theme_support('post-thumbnails');
 
-add_filter('widget_text', 'do_shortcode'); //habilita shortcodes nos widgets
+//habilita shortcodes nos widgets
+add_filter('widget_text', 'do_shortcode');
 
+//habilita menu dinamico
+if ( function_exists( 'register_nav_menu' ) ) {
+    register_nav_menus(
+        array(
+            'topmenu' => 'Menu no topo da pagina',
+            'footermenu' => 'Menu no rodapé'
+        )
+    );
+}
 
-/***************************************************
-# Comentários
-***************************************************/
+/********************************************************************
+# Adicionando as classes css no menu dropdown
+********************************************************************/
 
-if ( ! function_exists( 'gamecdilan_atividade_comment' ) ) :
-
-	function gamecdilan_atividade_comment( $comment, $args, $depth ) {
-		$GLOBALS['comment'] = $comment;
-		switch ( $comment->comment_type ) :
-			case 'pingback' :
-			case 'trackback' :
-		?>
-		<li class="post pingback">
-			<p><?php _e( 'Pingback:', 'twentyeleven' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( __( 'Edit', 'twentyeleven' ), '<span class="edit-link">', '</span>' ); ?></p>
-		<?php
-				break;
-			default :
-		?>
-		<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
-			<article id="comment-<?php comment_ID(); ?>" class="comment">
-				<footer class="comment-meta">
-					<div class="comment-author vcard">
-						<?php
-							$avatar_size = 68;
-							if ( '0' != $comment->comment_parent )
-								$avatar_size = 39;
-
-							echo get_avatar( $comment, $avatar_size );
-
-							/* translators: 1: comment author, 2: date and time */
-							printf( __( '%1$s on %2$s <span class="says">said:</span>', 'twentyeleven' ),
-								sprintf( '<span class="fn">%s</span>', get_comment_author_link() ),
-								sprintf( '<a href="%1$s"><time pubdate datetime="%2$s">%3$s</time></a>',
-									esc_url( get_comment_link( $comment->comment_ID ) ),
-									get_comment_time( 'c' ),
-									/* translators: 1: date, 2: time */
-									sprintf( __( '%1$s at %2$s', 'twentyeleven' ), get_comment_date(), get_comment_time() )
-								)
-							);
-						?>
-
-						<?php edit_comment_link( __( 'Edit', 'twentyeleven' ), '<span class="edit-link">', '</span>' ); ?>
-					</div><!-- .comment-author .vcard -->
-
-					<?php if ( $comment->comment_approved == '0' ) : ?>
-						<em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'twentyeleven' ); ?></em>
-						<br />
-					<?php endif; ?>
-
-				</footer>
-
-				<div class="comment-content"><?php comment_text(); ?></div>
-
-				<div class="reply">
-					<?php comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'Reply <span>&darr;</span>', 'twentyeleven' ), 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
-				</div><!-- .reply -->
-			</article><!-- #comment-## -->
-
-		<?php
-				break;
-		endswitch;
+class Bootstrap_Walker_Nav_Menu extends Walker_Nav_Menu {
+	/**
+	 * @see Walker::start_el()
+	 * @since 3.0.0
+	 *
+	 * @param string $output Passed by reference. Used to append additional content.
+	 * @param object $item Menu item data object.
+	 * @param int $depth Depth of menu item. Used for padding.
+	 * @param int $current_page Menu item ID.
+	 * @param object $args
+	 */
+	function start_lvl( &$output, $depth ) {
+		$indent = str_repeat( "\t", $depth );
+		$output	   .= "\n$indent<ul class=\"dropdown-menu\">\n";		
 	}
-endif;
 
+	function start_el(&$output, $item, $depth, $args) {
+		global $wp_query;           
 
-/*
-// ====================================================
-// = Atualisa usermeta do jogador via formidable  =
-// ====================================================
-*/
+		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
+
+		$class_names = $value = '';
+
+		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
+		$classes[] = ($args->has_children) ? 'dropdown' : '';
+		$classes[] = ($item->current || $item->current_item_ancestor) ? 'active' : '';
+		$classes[] = 'menu-item-' . $item->ID;
+
+		$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
+		$class_names = ' class="' . esc_attr( $class_names ) . '"';
+
+		$id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
+		$id = strlen( $id ) ? ' id="' . esc_attr( $id ) . '"' : '';
+
+		$output .= $indent . '<li' . $id . $value . $class_names .'>';
+
+		$attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
+		$attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
+		$attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
+		$attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
+		$attributes .= ($args->has_children) 	    ? ' class="dropdown-toggle" data-toggle="dropdown"' : '';
+
+        // new addition for active class on the a tag
+        if(in_array('current-menu-item', $classes)) {
+            $attributes .= ' class="active"';
+        }
+
+		$item_output = $args->before;
+		$item_output .= '<a'. $attributes .'>';
+		$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
+		//$item_output .= '</a>';
+		$item_output .= ($args->has_children) ? ' <b class="caret"></b></a>' : '</a>';
+		$item_output .= $args->after;
+
+		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+	}
+
+	function display_element( $element, &$children_elements, $max_depth, $depth=0, $args, &$output ) {
+
+		if ( !$element )
+			return;
+
+		$id_field = $this->db_fields['id'];
+
+		//display this element
+		if ( is_array( $args[0] ) ) 
+			$args[0]['has_children'] = ! empty( $children_elements[$element->$id_field] );
+		else if ( is_object( $args[0] ) ) 
+			$args[0]->has_children = ! empty( $children_elements[$element->$id_field] ); 
+		$cb_args = array_merge( array(&$output, $element, $depth), $args);
+		call_user_func_array(array(&$this, 'start_el'), $cb_args);
+
+		$id = $element->$id_field;
+
+		// descend only when the depth is right and there are childrens for this element
+		if ( ($max_depth == 0 || $max_depth > $depth+1 ) && isset( $children_elements[$id]) ) {
+
+			foreach( $children_elements[ $id ] as $child ){
+
+				if ( !isset($newlevel) ) {
+					$newlevel = true;
+					//start the child delimiter
+					$cb_args = array_merge( array(&$output, $depth), $args);
+					call_user_func_array(array(&$this, 'start_lvl'), $cb_args);
+				}
+				$this->display_element( $child, $children_elements, $max_depth, $depth + 1, $args, $output );
+			}
+				unset( $children_elements[ $id ] );
+		}
+
+		if ( isset($newlevel) && $newlevel ){
+			//end the child delimiter
+			$cb_args = array_merge( array(&$output, $depth), $args);
+			call_user_func_array(array(&$this, 'end_lvl'), $cb_args);
+		}
+
+		//end this element
+		$cb_args = array_merge( array(&$output, $element, $depth), $args);
+		call_user_func_array(array(&$this, 'end_el'), $cb_args);
+
+	}
+}
+
+/*************************************************************
+# Atualiza usermeta do jogador ao enviar o formulário de id 6
+*************************************************************/
 
 add_action('frm_after_create_entry','altera_usermeta_via_form_basico', 20,2);
 add_action('frm_after_update_entry','altera_usermeta_via_form_basico', 20,2);
@@ -124,6 +187,23 @@ function altera_usermeta_via_form_basico ($entry_id, $form_id) {
 		update_user_meta ($_POST['item_meta'][84], 'nickname', $_POST['item_meta'][87]);
 		update_user_meta ($_POST['item_meta'][84], 'lanhouse', $_POST['item_meta'][89]);
 
+	}
+}
+
+/*************************************************************************
+# Atualiza usuário de assinante para jogador ao enviar formulário de id 21
+*************************************************************************/
+
+add_action('frm_after_create_entry', 'altera_assinante_para_jogador', 20, 2);
+add_action('frm_after_update_entry', 'altera_assinante_para_jogador', 20, 2);
+
+function altera_assinante_para_jogador($entry_id, $form_id) {
+
+	if ($form_id == 21) {
+		$user_id = get_current_user_id();
+		$user_id_role = new WP_User($user_id);
+		$user_id_role->set_role('jogador');
+		update_user_meta ($user_id, 'show_admin_bar_front' , 'false');
 	}
 }
 

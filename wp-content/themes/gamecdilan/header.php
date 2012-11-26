@@ -29,7 +29,7 @@
         
         <meta name="viewport" content="width=device-width">
 
-		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+        <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
         <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('template_directory'); ?>/css/bootstrap.css" />
         <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('stylesheet_url'); echo '?' . filemtime( get_stylesheet_directory() . '/style.css'); ?>" />
@@ -40,36 +40,40 @@
     </head>
     <body <?php body_class(); ?>>
 
-		<header id="cabecalho" class="navbar navbar-fixed-top">
-			<div class="navbar-inner">
-				<div class="container">
-
-					<!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</a>
-
-					<a class="brand" href="<?php bloginfo('url'); ?>"><?php bloginfo('name') ?></a>
-
-					<!-- Everything you want hidden at 940px or less, place within here -->
-					<div class="nav-collapse">
-                        <ul class="nav">
-                            <li><a href="<?php bloginfo('url'); ?>/episodios/">Episódios</a></li>
-                            <li><a href="<?php bloginfo('url'); ?>/entregas/">Entregas</a></li>
-                        </ul>
-					</div>
-				</div>
-			</div>
-		</header>
-        
-        <?php if(!is_front_page() && function_exists('bcn_display')) : ?>
-            <section id="breadcrumbs">
+        <header id="site-header" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
                 <div class="container">
-                    <div class="breadcrumb">
-                        <small><?php bcn_display(); ?></small>
+
+                    <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+
+                    <a class="brand" href="<?php bloginfo('url'); ?>"><?php bloginfo('name') ?></a>
+
+                    <!-- Everything you want hidden at 940px or less, place within here -->
+                    <div class="nav-collapse">
+                        <ul class="nav">                        
+                            <?php wp_nav_menu(array('theme_location' => 'topmenu', 'container' => false, 'items_wrap' => '%3$s', 'menu_id' => 'top-nav', 'walker' => new Bootstrap_Walker_Nav_Menu())); ?>
+                            <?php if(is_user_logged_in()) : ?>
+                                <li class="logout"><a href="<?php echo wp_logout_url(); ?>" title="Logout" class=>Logout</a></li>
+                            <?php endif; ?>
+                        </ul>
                     </div>
                 </div>
-            </section>
-        <?php endif; ?>
+            </div>
+        </header>
+        
+        <section id="site-content">
+
+            <?php if(!is_front_page() && function_exists('bcn_display')) : ?>
+                <section id="breadcrumbs">
+                    <div class="container">
+                        <div class="breadcrumb">
+                            <small><?php bcn_display(); ?></small>
+                        </div>
+                    </div>
+                </section>
+            <?php endif; ?>

@@ -9,44 +9,69 @@ License URI: ...
 Text Domain: gamecdilan
 */
 
-body{padding-top: 70px;}
+body{
+	background-color: whiteSmoke;
+}
+
+/*Menu topo*/
 
 .admin-bar .navbar-fixed-top{
     top: 28px;
 }
 
+.navbar ul.nav{
+	float: right;
+}
+
+/*Áreas principais*/
+
+#site-content{
+	padding: 70px 0 50px;
+	background: white url('img/bg.gif') repeat;
+}
+
+#site-footer{
+	padding: 30px 0;
+	background-color: whiteSmoke;
+	border-top: 1px solid #DDD;
+}
+
+/*Breadcrumbs*/
+
 .breadcrumb{
 	margin: 25px 0 10px;
 }
 
-#episodios .thumbnail{
-	height: 450px;
+/* Login */
+
+.login{
+	padding: 50px 0;
 }
 
-#episodios .thumbnail h2{
-	margin: 10px 0;
-	font-size: 19px;
-	line-height: 22px; 
+.login .entry{
+	text-align: center; 
 }
 
-#episodios .thumbnail p{
-	height: 195px;
+.login .entry h1{
+	font-size: 30px;
+	line-height: 120%;
+}
+.login .entry h2{
+	font-size: 20px;
+	line-height: 120%;
 }
 
-#atividades .thumbnail h2{
-	margin: 0 0 10px;
-	font-size: 25px;
-	line-height: 25px;
+#video{
+	border: 1px solid #DDD;
+	padding: 5px;
+	background-color: #FFF;
+	width: 560px;
+	height: 315px;
+	overflow: hidden;
+	margin: 0 auto;
 }
 
-#episodio h1{
-	font-size: 27px;
-}
-
-#episodio .lead{
-	font-size: 17px;
-	line-height: 140%;
-}
+/*Página inicial*/
 
 #home h1{
 	font-size: 33px;
@@ -54,6 +79,10 @@ body{padding-top: 70px;}
 
 #home .lead{
 	font-size: 19px;
+}
+
+.home-news{
+	margin-bottom: 20px;
 }
 
 #home-links .well h2{
@@ -67,16 +96,91 @@ body{padding-top: 70px;}
 	font-size: 17px;
 }
 
-#rodape{
-	margin-top: 30px;
-	padding: 30px 0;
-	background-color: whiteSmoke;
-	border-top: 1px solid #DDD;
+/*Episódios*/
+
+#episodios{
+	padding: 0;
+	margin: 0;
 }
 
-.navbar ul.nav{
-	float: right;
+#episodio .lead{
+	font-size: 17px;
+	line-height: 140%;
 }
+
+#episodios .pager{
+	margin: 0;
+	text-align: left;
+}
+
+#episodios li{
+	width: 220px;
+	padding: 0 7px;
+}
+
+#episodios .thumbnail{
+	height: 450px;
+}
+
+#episodios .thumbnail h2{
+	margin: 10px 0;
+	font-size: 19px;
+	line-height: 22px; 
+}
+
+#episodios .thumbnail p{
+	height: 226px;
+}
+
+#lista-episodios .bx-prev,
+#lista-episodios .bx-next{
+	background-color: #000;
+	display: block;
+	text-indent: -9999px; 
+	position: relative;
+	top: -250px;
+	height: 50px;
+	width: 30px;
+	background: url('img/boxslider-arrow.gif') no-repeat 0 0; 
+}
+
+#lista-episodios .bx-prev{
+	float: left;
+	margin-left: -40px;
+	background-position: 0 0;
+}
+#lista-episodios .bx-prev:hover{background-position: 0px -50px;}
+
+#lista-episodios .bx-next{
+	float: right;
+	margin-right: -40px;
+	background-position: -30px 0;
+}
+#lista-episodios .bx-next:hover{background-position: -30px -50px;}
+
+
+/*Lista de atividades*/
+
+#lista-atividades .thumbnail{
+	height: 150px;
+}
+
+#lista-atividades .thumbnail img{
+	float: left;
+	margin-right: 5px;
+}
+
+#lista-atividades .thumbnail h2{
+	margin: 0 0 5px;
+	line-height: 120%;
+	font-size: 20px;
+}
+
+#lista-atividades .thumbnail .btn{
+	margin-top: 10px;
+}
+
+/**/
 
 .widget h3{
 	margin: 0px;
@@ -106,15 +210,84 @@ body{padding-top: 70px;}
 	border-bottom-left-radius: 4px;
 }
 
-ol.commentlist{
+/*Comentários*/
+
+.commentlist,
+.commentlist ul{
 	list-style: none;
 	margin: 0;
 }
 
-ol.commentlist li{
-	padding: 20px 0;
-	border-bottom: 1px dotted #CCC;
+.commentlist li{
+	margin-bottom: 5px;
+	padding: 5px;
+	border: 1px solid #E3E3E3;
+	background-color: #FFF;
+
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;	
 }
+
+.commentlist li li{
+	margin-left: 30px;
+}
+
+.commentlist img{
+	float: left;
+	margin-right: 4px;
+	margin-top: 2px;
+	margin-bottom: 4px;
+}
+
+.commentlist .fn{font-weight: bold;}
+
+.commentlist .says{font-size: 11px;}
+
+.commentlist .comment-meta{
+	font-size: 11px;
+	padding: 0;
+	line-height: 90%;
+}
+
+.commentlist .comment-body p{
+	font-size: 13px;
+	display: block;
+	clear: both;
+}
+
+.commentlist .reply{
+	clear: both;
+	margin-bottom: 5px;
+	text-align: right;
+}
+
+.commentlist .reply a{
+	font-size: 11px;
+	padding: 2px 5px;
+
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;		
+}
+
+.commentlist .reply a:hover{
+	text-decoration: none;
+	background-color: #DDD;
+}
+
+.must-log-in{
+	padding: 19px;
+	margin-bottom: 20px;
+	background-color: whiteSmoke;
+	border: 1px solid #E3E3E3;
+
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+/*Formulário de entrega*/
 
 .frm_forms h3{;
 	margin-bottom: 5px;
@@ -169,7 +342,36 @@ ol.commentlist li{
     border-radius: 4px;	
 }
 
-/* Post entry */
+/* Lista de jogadores */
+
+#jogador-card .thumbnail{
+	height: 96px;
+}
+
+#jogador-card img {
+	margin-right: 8px;
+	float: left;
+}
+
+#jogador-card p {
+	margin: 0px;
+	line-height: 100%;
+	text-decoration: capitalize;
+}
+
+#jogador-card h3{
+	margin: 0px 0px 5px;
+	line-height: 120%;
+	font-size: 19px;
+}
+
+#jogador-card h4{
+	margin: 0px 0px 5px;
+	line-height: 100%;
+	font-size: 15px;
+}
+
+/* Conteúdo dinâmico */
 
 .entry,
 .entry p,
@@ -270,18 +472,49 @@ ol.commentlist li{
     padding:0 4px 5px;
 }
 
+/*Footer partner*/
+
+#footer-partner .thumbnail{
+	background-color: #FFF;
+	text-align: center;
+}
+
+#footer-partner .thumbnail h4{
+	font-size: 13px;
+	font-weight: lighter;
+	color: #999;
+}
+
+#footer-partner .thumbnail img{
+	display: inline;
+}
 
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) and (max-width: 979px) {
     body{padding-top: 0 !important;}
+	.navbar-fixed-top{
+		margin-bottom: 0;		
+	}
 }
  
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
     body{padding-top: 0 !important;}
-	#rodape{
+	.navbar-fixed-top{
+		margin-bottom: 0;		
+	}
+
+	#site-content{
+		padding-top: 0;
+		margin-top: 0;
+	}
+
+	#site-content,
+	#site-footer{
 		margin-right: -20px;
 		margin-left: -20px;
+		padding-right: 20px; 
+		padding-left: 20px; 
 	}
 }
 
@@ -289,42 +522,3 @@ ol.commentlist li{
 @media (max-width: 480px) {
     body{padding-top: 0 !important;}
 }
-
-
-/* Lista de jogadores */
-
-#jogador-card .thumbnail{
-	height: 96px;
-}
-
-#jogador-card img {
-	margin-right: 8px;
-	float: left;
-}
-
-#jogador-card p {
-	margin: 0px;
-	line-height: 100%;
-	text-decoration: capitalize;
-}
-
-#jogador-card h3{
-	margin: 0px 0px 5px;
-	line-height: 120%;
-	font-size: 19px;
-}
-
-#jogador-card h4{
-	margin: 0px 0px 5px;
-	line-height: 100%;
-	font-size: 15px;
-}
-
-/* layout da pagina Lista de Atividades */
-
-.resumo-atividade {
-	height: 119px;
-	overflow: hidden;
-}
-
-/*luciano*/
