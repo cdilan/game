@@ -3,7 +3,7 @@
             <?php if (have_posts()) : ?>
                 <?php while (have_posts()) : the_post(); ?>
 
-                <section id="texto-inspirador">
+                <section id="atividade">
                     <div class="container">
                         <div class="page-header">
                             <h1><?php the_title(); ?></h1>
@@ -11,8 +11,16 @@
 
                         <div class="row">
                             <div class="span8">
-                                <div class="entry">
+                                <div class="entry" id="texto-inspirador">
                                     <?php the_content(); ?>
+                                </div>
+                                <?php if(get_post_meta($post->ID, 'form_atividade', true)) : ?>
+                                    <div class="well" id="formulario">
+                                        <?php echo do_shortcode(get_post_meta( $post->ID, 'form_atividade', true )); ?>
+                                    </div>
+                                <?php endif; ?>
+                                <div id="comentarios">
+                                    <?php comments_template( '', true ); ?>
                                 </div>
                             </div>
 
@@ -26,7 +34,7 @@
                                     </div>
                                 <?php endif; ?>
                                 <?php if(get_post_meta($post->ID, 'sugeridas_atividade', true)) : ?>
-                                    <div id="sugeridsa" class="widget">
+                                    <div id="sugeridas" class="widget">
                                         <h3>Atividades sugeridas</h3>
                                         <div class="well">
                                             <?php echo do_shortcode(get_post_meta( $post->ID, 'sugeridas_atividade', true )); ?>
@@ -38,28 +46,8 @@
                     </div>
                 </section>
 
-                <section id="formulario-entrega">
-                    <div class="container">
-                        <div class="row">
-                            <div class="span8">
-                                <?php if(get_post_meta($post->ID, 'form_atividade', true)) : ?>
-                                    <div class="well">
-                                        <?php echo do_shortcode(get_post_meta( $post->ID, 'form_atividade', true )); ?>
-                                    </div>
-                                <?php endif; ?>
-                            </div>
-                            <aside class="span4">
-                                <div id="lista-comentarios" class="widget">
-                                    <?php comments_template( '', true ); ?>
-                                </div>
-                            </aside>
-                        </div>
-                    </div>
-                </section>
-
                 <?php endwhile; ?>
             <?php endif; ?>
-
 
             <?php $tag_atividade = wp_get_post_terms($post->ID, 'tag_atividade', array("fields" => "names")); ?>
 
