@@ -2,25 +2,48 @@
 /**
  * Template Name: Página inicial
  */
-get_header(); ?>
-            
-            <?php if (have_posts()) : ?>
-                <?php while (have_posts()) : the_post(); ?>
-
+get_header(); ?>            
                     <section id="home">
                         <div class="container">
                             <div class="row">
                                 <div class="span6">
-                                    <div class="lead">
-                                        <?php the_content(); ?>
+                                    <div class="entry">
+                                        <?php if (have_posts()) : ?>
+                                            <?php while (have_posts()) : the_post(); ?>
+                                                <?php the_content(); ?>
+                                            <?php endwhile; ?>
+                                        <?php endif; ?>
                                     </div>
-                                    <div class="well">
-                                        <p><strong>Novidades no GAME!</strong> Confira as novas atividades e as últimas corridas disponíveis para jogadores e suas lanhouses...</p>
-                                        <a href="#" class="btn btn-small disabled">+ saiba mais</a>
-                                    </div>
+                                    <?php
+                                    $args = array(
+                                        'posts_per_page' => 1,
+                                        'post__in' => get_option('sticky_posts')
+                                    );
+                                    query_posts($args);
+
+                                    if (have_posts()) :
+                                    
+                                        while (have_posts()) : the_post();
+                                    ?>
+                                            
+                                            <article class="home-news">
+                                                <p>
+                                                    <strong>Novidades no GAME!</strong>
+                                                    <?php echo get_the_excerpt(); ?>
+                                                    <a href="<?php the_permalink(); ?>">saiba mais &raquo;</a>
+                                                </p>
+                                                
+                                            </article>
+
+                                        <?php endwhile; wp_reset_postdata(); ?>
+                                    <? endif; ?>
                                 </div>
                                 <div class="span6">
-                                    <img src="<?php bloginfo('template_directory'); ?>/img/home.png" class="pull-right" />
+                                    <?php if (have_posts()) : ?>
+                                        <?php while (have_posts()) : the_post(); ?>
+                                            <?php if (has_post_thumbnail()) { the_post_thumbnail(); } ?>
+                                        <?php endwhile; ?>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         </div>
@@ -54,7 +77,6 @@ get_header(); ?>
                         </div>
                     </section>
                 
-                <?php endwhile; ?>
-            <?php endif; ?>
+
 
 <?php get_footer(); ?>
