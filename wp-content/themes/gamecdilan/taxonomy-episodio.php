@@ -21,8 +21,9 @@
                                     <?php while (have_posts()) : the_post(); ?>
                                         <li class="span6">
                                             <div class="thumbnail">
+                                                <?php if (has_post_thumbnail()) { the_post_thumbnail('thumbnail'); } ?>
                                                 <h2><?php the_title(); ?></h2>
-                                                <div class="resumo-atividade"><?php the_excerpt(); ?></div>
+                                                <div><?php echo substr(get_the_excerpt(), 0, 180); ?>...</div>
                                                 <a href="<?php the_permalink(); ?>" class="btn btn-primary">Fazer atividade</a>
                                             </div>
                                         </li>
